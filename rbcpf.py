@@ -101,7 +101,6 @@ class RBCPFPlugin(GObject.Object, Peas.Activatable):
         Plugin activation
         '''
         shell = self.object
-        app = shell.props.application
 
         if not self.replaced:
             self.replace_sidebar()
