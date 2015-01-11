@@ -20,9 +20,9 @@ Limitations in GTK+ make it impossible to completely deactivate the plugin.
 After deactiviting the plugin through the API, it is recommended to close and
 restart Rhythmbox.
 
-This has only be tested with Rhythmbox 2.99, which uses Python 2. Your mileage
-may vary with Rhythmbox 3.x, which uses Python 3. At a minimum you may need
-to change the Loader in `rbcpf.plugin` from `python` to `python3`.
+This is for Rhythmbox 3.x. For Rhythmbox 2, you will need to change the Loader
+in `rbcpf.plugin` from `python3` to `python`. It is also no longer tested on
+Rhythmbox 2.
 
 License
 -------
