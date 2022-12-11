@@ -1,5 +1,5 @@
 # rbcpf: customizes the playlist sidepane in Rhythmbox
-# Copyright (C) 2014  Bruce Merry <bmerry@users.sourceforge.net>
+# Copyright (C) 2014, 2022  Bruce Merry <bmerry@users.sourceforge.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -72,7 +72,10 @@ class RBCPFPlugin(GObject.Object, Peas.Activatable):
         shell = self.object
         queue = shell.props.queue_source
         view = queue.props.sidebar
-        treeview = view.get_child()
+        try:
+            treeview = view.get_child()  # Older versions of Rhythmbox
+        except AttributeError:
+            treeview = view.get_children()[0].get_child().get_child()  # Newer versions
         return treeview
 
     def set_format(self, format_str):
